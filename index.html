@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bubble Game made using javascript</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="shortcut icon" href="./assets/player1.svg" type="image/x-icon">
+
+</head>
+<body>
+	<div class="gameDiv" :class="{bubbleReached: bubbleReached}">
+		<h2>Player :{{ score}}</h2>
+		<img src="./assets/player1.svg" :style="player" alt="player1svg" class="player" id="player1">
+
+		<template v-for="bullet in bullets">
+			<div class="bullet"
+			:style="[{left: bullet.x + 'px'},
+			{top: bullet.y + 'px'}]">
+				
+			</div>
+			
+		</template>
+
+		<template v-for="(bubble,color)in bubbles" >
+			<img :style="[{left: bubble.x + 'px'},
+			{top: bubble.y + 'px'}]" 
+
+
+			:src="`./assets/bubble_${bubble.color}.svg`"
+			alt="bubblesvg" class="bubble">
+		
+		</template>
+		
+	</div>
+
+ <script src="./main.js"></script>
+
+</body>
+</html>
